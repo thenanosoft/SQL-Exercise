@@ -19,6 +19,7 @@ std_Addresss VARCHAR(100)
 )
 ```  
 
+
 ## Example 2
 
 #### Create Database
