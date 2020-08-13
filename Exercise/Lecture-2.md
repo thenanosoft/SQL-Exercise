@@ -1,4 +1,4 @@
-# SQL CREATE, ALTER, DROP, SHOW OR USE OF [DATABASE] & [TABLE] Excercise Using Query
+# CREATE, ALTER, DROP, SHOW OR USE OF [DATABASE] & [TABLE] Excercise Using SQL Query
 ___
 ## Database
 
