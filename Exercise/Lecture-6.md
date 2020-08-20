@@ -91,7 +91,7 @@ There are two types of operators that are commonly used in SQL
 |ALL|TRUE if all of the subquery values meet the condition|
 |ANY|TRUE if any of the subquery values meet the condition|
 |AND|TRUE if all conditions is TRUE that separated by AND|
-|NOT|Display record if the condition is False|
+|NOT|Display record if the condition is NOT TRUE|
 |OR|True if any condition is TRUE that are separated by OR|
 |IN|TRUE if record match one of a list of expression|
 |BETWEEN|TRUE if record is within the range of expressions|
@@ -131,10 +131,105 @@ WHERE std_Enroll_Date <= '2019-01-15'
 ```SQL
 # ALL Operator (if any record found in the table that can not fulfil the condition then no data is return)
 # Example: 35 > 1 to 34; if (any student have 36 or Greater than from given age[35] then no data return) else (the condition is true and the all record is return)
+
 SELECT * FROM Student_Info
 WHERE std_Age > ALL (SELECT std_Age FROM Student_Info WHERE std_Age > 35)
 
+#-----------------------------------------------------------------------------
+
 # ANY Operator (if any record is equal to given date then the data is return otherwise the condition is false and record not return)
+
 SELECT * FROM Student_Info
 WHERE std_Enroll_Date = ANY (SELECT std_Enroll_Date FROM Student_Info WHERE std_Enroll_Date = '2020-02-29')
+
+#-----------------------------------------------------------------------------
+
+# AND Operator
+SELECT * FROM Student_Info
+WHERE std_Age > 18 AND std_Address = "Lahore"
+
+#-----------------------------------------------------------------------------
+
+# NOT Operator
+SELECT * FROM Student_Info
+WHERE NOT std_Address = "Lahore"
+
+#-----------------------------------------------------------------------------
+
+# OR Operator
+SELECT * FROM Student_Info
+WHERE NOT std_Address = "Lahore" OR NOT std_Address = "Islamabad"
+
+#-----------------------------------------------------------------------------
+
+# IN Operator
+SELECT * FROM Student_Info
+WHERE std_Address IN ('Lahore','Islamabad','Peshawar')
+
+#-----------------------------------------------------------------------------
+
+#BETWEEN Operator
+SELECT * FROM Student_Info
+WHERE std_Age BETWEEN 50 AND 60
+
+#-----------------------------------------------------------------------------
+
+#EXISTS Operator
+SELECT * FROM Student_Info
+WHERE EXISTS (SELECT student_Name From Student_Info WHERE std_Id = 11070 AND std_First_Name = "Farhan")
+
+#-----------------------------------------------------------------------------
+
+# Like Operator
+# % : The percent sign represents zero, one, or multiple characters
+# _ : The underscore represents a single character
+
+#Example 1 [find any name that start with "Mohammad"]
+
+SELECT std_Name FROM Student_Info
+WHERE std_Name LIKE 'Mohammad%'
+
+
+#Example 2 [find any name that end with "Khan"]
+
+SELECT std_Name FROM Student_Info
+WHERE std_Name LIKE '%Khan'
+
+
+#Example 3 [find any name that have "aa" in any position]
+
+SELECT std_Name FROM Student_Info
+WHERE std_Name LIKE '%aa%'
+
+
+#Example 4 [find any name that have "h" in the third position]
+
+SELECT std_Name FROM Student_Info
+WHERE std_Name LIKE 'Mo_%'
+
+
+#Example 5 [find any name that start with "F" & Atleast 3 charachters]
+
+SELECT std_Name FROM Student_Info
+WHERE std_Name LIKE 'F__%'
+
+
+#Example 6 [find any name that start with 'f' & end with 'n']
+
+SELECT std_Name FROM Student_Info
+WHERE std_Name LIKE 'f%n'
+
+# you can check more patterns from google
 ```
+
+### SELECT NULL or NOT NULL Values
+```SQL
+SELECT std_Name, std_Cell FROM Student_Info
+WHERE std_Cell IS NULL
+```
+
+```SQL
+SELECT std_Name, std_Fees FROM Student_Fee
+WHERE std_Fees IS NOT NULL
+```
+
