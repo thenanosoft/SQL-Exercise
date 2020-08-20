@@ -1,5 +1,7 @@
 # SQL Advance Level SELECT Statement
 
+> Please make new table as you want we already learn how to create table and column in sql in lecture #1 or Lecture #2
+
 ### SELECT Statement with DISTINCT Keyword
 A table data can contain several duplicate values. Select statement does not ignore/remove/eliminate duplicate data. To eliminate the duplicates, we use the DISTINCT keyword.
 
@@ -82,7 +84,7 @@ There are two types of operators that are commonly used in SQL
 |<=|Is Less than or Equal to|
 
 
-**2. Arithmetic Operators**
+**2. Logical Operators**
 
 |Operator|Discription|
 |-|-|
@@ -95,3 +97,44 @@ There are two types of operators that are commonly used in SQL
 |BETWEEN|TRUE if record is within the range of expressions|
 |EXISTS|TRUE if subquery is return one or more record|
 |LIKE|True if record match the pattern|
+
+
+**SQL COMPARISON Operator Statement Examples**
+```SQL
+# Equal to
+SELECT std_Name FROM Student_Info
+WHERE std_Name = "Farhan"
+
+# Is not Equal to
+SELECT std_Name FROM Student_Info
+WHERE std_Last_Name <> "Ali"
+
+# Is greater than
+SELECT std_Name FROM Student_Info
+WHERE std_Age > 18
+
+# Is less than
+SELECT std_Name FROM Stduent_Info
+WHERE std_Age < 25
+
+# Is Greater than or equal to
+SELECT std_Name FROM Student_Info
+WHERE std_Enroll_Date >= '2020-01-15'
+
+# IS Less than or Equal to
+SELECT std_Name FROM Student_Info
+WHERE std_Enroll_Date <= '2019-01-15'
+```
+
+**SQL Logical OERATOR Statements Examples**
+> in future we learn subquery how it's work
+```SQL
+# ALL Operator (if any record found in the table that can not fulfil the condition then no data is return)
+# Example: 35 > 1 to 34; if (any student have 36 or Greater than from given age[35] then no data return) else (the condition is true and the all record is return)
+SELECT * FROM Student_Info
+WHERE std_Age > ALL (SELECT std_Age FROM Student_Info WHERE std_Age > 35)
+
+# ANY Operator (if any record is equal to given date then the data is return otherwise the condition is false and record not return)
+SELECT * FROM Student_Info
+WHERE std_Enroll_Date = ANY (SELECT std_Enroll_Date FROM Student_Info WHERE std_Enroll_Date = '2020-02-29')
+```
