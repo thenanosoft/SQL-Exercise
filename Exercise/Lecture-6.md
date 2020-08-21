@@ -5,7 +5,7 @@
 ### SELECT Statement with DISTINCT Keyword
 A table data can contain several duplicate values. Select statement does not ignore/remove/eliminate duplicate data. To eliminate the duplicates, we use the DISTINCT keyword.
 
-*For Example:* in ABC School have different designation like Priniciple, Administrator, Worker, etc.
+*For Example:* in ABC School have different designation like Principle, Administrator, Worker, etc.
 
 *[Without Distinct Keyword]*
 |Designation|Count|
@@ -62,7 +62,7 @@ FROM ABC_Teachers
 ```
 
 ### WHERE Clause
-WHERE Clause is use to retrieve only those record who fulfil the specified criteria or condition.
+WHERE Clause is use to retrieve only those record who fulfill the specified criteria or condition.
 ```SQL
 # show only those teacher name their salary is greater than 20 thousand
 SELECT teacher_Name from ABC_Teachers
@@ -129,7 +129,7 @@ WHERE std_Enroll_Date <= '2019-01-15'
 **SQL Logical OERATOR Statements Examples**
 > in future we learn subquery how it's work
 ```SQL
-# ALL Operator (if any record found in the table that can not fulfil the condition then no data is return)
+# ALL Operator (if any record found in the table that can not fulfill the condition then no data is return)
 # Example: 35 > 1 to 34; if (any student have 36 or Greater than from given age[35] then no data return) else (the condition is true and the all record is return)
 
 SELECT * FROM Student_Info
@@ -202,10 +202,10 @@ SELECT std_Name FROM Student_Info
 WHERE std_Name LIKE '%aa%'
 
 
-#Example 4 [find any name that have "h" in the third position]
+#Example 4 [find any name that start with "M" & have "h" in the third position]
 
 SELECT std_Name FROM Student_Info
-WHERE std_Name LIKE 'Mo_%'
+WHERE std_Name LIKE 'M_h%'
 
 
 #Example 5 [find any name that start with "F" & Atleast 3 charachters]
