@@ -42,7 +42,7 @@ The **WHERE** clause is used to filter records with specified condition
 
 ```SQL
 SELECT * FROM Student_Info
-WHERE std_Name = "Farhan" AND std_Age = "20"
+WHERE std_Name = "Farhan" AND std_Age = 20
 ```
 
 ### GROUP BY CLAUSE
