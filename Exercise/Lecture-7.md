@@ -1,4 +1,4 @@
-# SQL Clauses 
+# SQL Clause
 ---
 
 ALL SQL Clauses
