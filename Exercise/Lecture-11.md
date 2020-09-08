@@ -5,7 +5,7 @@ The `INSERT INTO SELECT` command clone or copies data from one table and inserts
 
 **The Number of columns and data types must be same.**
 
-> create table as student_info with new_Student-info
+> create new table with the name of new_Student_info
 
 ### INSERT INTO SELECT
 ```
@@ -38,15 +38,15 @@ ON SI.std_id = SM.std_id
 Example
 ```
 -- UNION Example
-firts_table (1,2,4,5)
+firts_table (1, "Farhan",23), (2,"Shami", 25), (4, "saud", 21), (5, arslan, 19)
 UNION
-second_table (1,2,3,6)
+second_table (1, "Farhan",23), (2,"Shami", 25), (3, "saud", 34), (6, nauman, 12)
 
 -- UNION Example Answer
-final_table (1,2,4,5,3,6)
+output_table (1, "Farhan",23), (2,"Shami", 25), (4, "saud", 21), (5, arslan, 19), (3, "saud", 34), (6, nauman, 12)
 
 -- UNION ALL Example Answer
-final_table (1,2,4,5,1,2,3,6)
+output_table (1, "Farhan",23), (2,"Shami", 25), (4, "saud", 21), (5, arslan, 19), (1, "Farhan",23), (2,"Shami", 25), (3, "saud", 34), (6, nauman, 12)
 ```
 
 ```SQL
@@ -66,11 +66,11 @@ SELECT * FROM Second_Table
 Example
 ```
 -- INTERSECTON Example
-firts_table (1,2,4,5)
+firts_table (1, "Farhan",23), (2,"Shami", 25), (4, "saud", 21), (5, arslan, 19)
 INTERSECT
-second_table (1,2,3,6)
+second_table (1, "Farhan",23), (2,"Shami", 25), (3, "saud", 34), (6, nauman, 12)
 
-final_table (1,2)
+output_table (1, "Farhan",23), (2,"Shami", 25)
 ```
 ```SQL
 -- combine two table and return only first table record that matched with second table
@@ -84,11 +84,11 @@ SELECT * FROM Second_Table
 Example
 ```
 -- EXCEPT Example
-firts_table (1,2,4,5)
+firts_table (1, "Farhan",23), (2,"Shami", 25), (4, "saud", 21), (5, arslan, 19)
 EXCEPT
-second_table (1,2,3,6)
+second_table (1, "Farhan",23), (2,"Shami", 25), (3, "saud", 34), (6, nauman, 12)
 
-final_table (4,5)
+output_table (4, "saud", 21), (5, arslan, 19)
 ```
 ```SQL
 SELECT * FROM First_Table
